@@ -1,0 +1,169 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>BngSpr</groupId>
+  <artifactId>BngSpr</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>ROOT</name>
+  <description>Banglaore Sports</description>
+  <properties>
+		<!-- Java Runtime Version -->
+		<java.version>1.7</java.version>
+
+		<!-- SAP Components -->
+		<neosdk.version>2.33.10.1</neosdk.version>
+		<ui5.version>1.20.6</ui5.version>
+		<sec.um.version>1.0.25</sec.um.version>
+		<sec.auth.version>2.0.8</sec.auth.version>
+		<catalina.version>1.5.0</catalina.version>
+		<server.csi.version>1.00.8</server.csi.version>
+
+		<!-- JAX-RS API -->
+		<jaxrs.version>2.0</jaxrs.version>
+
+		<!-- Loggin Components -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+
+		<!-- Mapping Converter Components -->
+		<gson.version>2.2.4</gson.version>
+		<jettison.version>1.3.3</jettison.version>
+
+		<!-- Maven WTP Context Root -->
+		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
+	</properties>
+
+
+
+	<dependencies>
+		<!-- NEO SDK -->
+		<dependency>
+			<groupId>com.sap.cloud</groupId>
+			<artifactId>neo-javaee6-wp-api</artifactId>
+			<version>${neosdk.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jettison</groupId>
+			<artifactId>jettison</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+		<!-- SAP UI5 Resources -->
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>core</artifactId>
+			<version>${ui5.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>commons</artifactId>
+			<version>${ui5.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>table</artifactId>
+			<version>${ui5.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>resource</artifactId>
+			<version>${ui5.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>utils</artifactId>
+			<version>${ui5.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>themelib_sap_bluecrystal</artifactId>
+			<version>${ui5.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sap.ui5</groupId>
+		    <artifactId>mobile</artifactId>
+		    <version>${ui5.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+				    <warName>golaco</warName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
